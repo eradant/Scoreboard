@@ -28,23 +28,23 @@ font_color = 0xFFFFFF
 # your timezone UTC offset and timezone name
 timezone_info = [-4, "EDT"]
 # the name of the sports you want to follow
-sport_name = ["football", "baseball", "soccer", "hockey", "basketball"]
+sport_name = ["football", "football", "football", "football", "football"]
 # the name of the corresponding leages you want to follow
-sport_league = ["nfl", "mlb", "usa.1", "nhl", "nba"]
+sport_league = ["nfl", "nfl", "nfl", "nfl", "nfl"]
 # the team names you want to follow
 # must match the order of sport/league arrays
 # include full name and then abbreviation (usually city/region)
-team0 = ["New England Patriots", "NE"]
-team1 = ["Boston Red Sox", "BOS"]
-team2 = ["New England Revolution", "NE"]
-team3 = ["Boston Bruins", "BOS"]
-team4 = ["Boston Celtics", "BOS"]
+team0 = ["Green Bay Packers", "GB"]
+team1 = ["Chicago Bears", "CHI"]
+team2 = ["Detroit Lions", "DET"]
+team3 = ["Minnesota Vikings", "MIN"]
+team4 = ["Los Angeles Rams", "LAR"]
 # how often the API should be fetched
 fetch_timer = 300 # seconds
 # how often the display should update
 display_timer = 30 # seconds
 
-pixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness = 0.3, auto_write=True)
+pixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness = 0.1, auto_write=True)
 
 # matrix setup
 base_width = 64
@@ -109,22 +109,22 @@ group0 = displayio.Group()
 groups.append(group0)
 # repeat:
 teams.append(team1)
-logo1 = "/team1_logos/" + team1[1] + ".bmp"
+logo1 = "/team0_logos/" + team1[1] + ".bmp"
 logos.append(logo1)
 group1 = displayio.Group()
 groups.append(group1)
 teams.append(team2)
-logo2 = "/team2_logos/" + team2[1] + ".bmp"
+logo2 = "/team0_logos/" + team2[1] + ".bmp"
 logos.append(logo2)
 group2 = displayio.Group()
 groups.append(group2)
 teams.append(team3)
-logo3 = "/team3_logos/" + team3[1] + ".bmp"
+logo3 = "/team0_logos/" + team3[1] + ".bmp"
 logos.append(logo3)
 group3 = displayio.Group()
 groups.append(group3)
 teams.append(team4)
-logo4 = "/team4_logos/" + team4[1] + ".bmp"
+logo4 = "/team0_logos/" + team4[1] + ".bmp"
 logos.append(logo4)
 group4 = displayio.Group()
 groups.append(group4)
@@ -405,3 +405,5 @@ while True:
         gc.collect()
         time.sleep(5)
         microcontroller.reset()
+
+
