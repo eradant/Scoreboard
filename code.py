@@ -26,23 +26,49 @@ displayio.release_displays()
 # font color for text on matrix
 font_color = 0xFFFFFF
 # your timezone UTC offset and timezone name
-timezone_info = [-4, "EDT"]
+timezone_info = [-8, "PST"]
 # the name of the sports you want to follow
-sport_name = ["football", "football", "football", "football", "football"]
+sport_name = ["football", "football", "football", "football", "football", "football", "football", "football", "football", "football",
+"football", "football", "football", "football", "football", "football"]
 # the name of the corresponding leages you want to follow
-sport_league = ["nfl", "nfl", "nfl", "nfl", "nfl"]
+sport_league = ["nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl"]
 # the team names you want to follow
 # must match the order of sport/league arrays
 # include full name and then abbreviation (usually city/region)
+##########
+#nfc north
+#########
 team0 = ["Green Bay Packers", "GB"]
 team1 = ["Chicago Bears", "CHI"]
 team2 = ["Detroit Lions", "DET"]
 team3 = ["Minnesota Vikings", "MIN"]
+##########
+#nfc west
+##########
 team4 = ["Los Angeles Rams", "LAR"]
+team5 = ["Seattle Seahawks", "SEA"]
+team6 = ["San Francisco 49ers", "SF"]
+team7 = ["Arizona Cardinals", "ARI"]
+##########
+#nfc east
+##########
+team8 = ["Dallas Cowboys", "DAL"]
+team9 = ["New York Giants", "NYG"]
+team10 = ["Philadelphia Eagles", "PHI"]
+team11 = ["Washington Commanders", "WSH"]
+##########
+#nfc south
+##########
+team12 = ["Atlanta Falcons", "ATL"]
+team13 = ["Carolina Panthers", "CAR"]
+team14 = ["New Orleans Saints", "NO"]
+team15 = ["Tampa Bay Buccaneers", "TB"]
+
+
 # how often the API should be fetched
 fetch_timer = 300 # seconds
 # how often the display should update
-display_timer = 30 # seconds
+display_timer = 10 # seconds
 
 pixel = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness = 0.1, auto_write=True)
 
@@ -83,7 +109,7 @@ print(f"Connected to {os.getenv('CIRCUITPY_WIFI_SSID')}")
 
 # add API URLs
 SPORT_URLS = []
-for i in range(5):
+for i in range(16):
     d = (
     f"https://site.api.espn.com/apis/site/v2/sports/{sport_name[i]}/{sport_league[i]}/scoreboard"
     )
@@ -99,36 +125,101 @@ logos = []
 groups = []
 # add team to array
 teams.append(team0)
-# grab logo bitmap name
 logo0 = "/team0_logos/" + team0[1] + ".bmp"
-# add logo to array
 logos.append(logo0)
-# create a display group
 group0 = displayio.Group()
-# add group to array
 groups.append(group0)
-# repeat:
+##################################################
 teams.append(team1)
 logo1 = "/team0_logos/" + team1[1] + ".bmp"
 logos.append(logo1)
 group1 = displayio.Group()
 groups.append(group1)
+###################################################
 teams.append(team2)
 logo2 = "/team0_logos/" + team2[1] + ".bmp"
 logos.append(logo2)
 group2 = displayio.Group()
 groups.append(group2)
+####################################################
 teams.append(team3)
 logo3 = "/team0_logos/" + team3[1] + ".bmp"
 logos.append(logo3)
 group3 = displayio.Group()
 groups.append(group3)
+###################################################
 teams.append(team4)
 logo4 = "/team0_logos/" + team4[1] + ".bmp"
 logos.append(logo4)
 group4 = displayio.Group()
 groups.append(group4)
-
+####################################################
+teams.append(team5)
+logo5 = "/team0_logos/" + team5[1] + ".bmp"
+logos.append(logo5)
+group5 = displayio.Group()
+groups.append(group5)
+###################################################
+teams.append(team6)
+logo6 = "/team0_logos/" + team6[1] + ".bmp"
+logos.append(logo6)
+group6 = displayio.Group()
+groups.append(group6)
+###################################################
+teams.append(team7)
+logo7 = "/team0_logos/" + team7[1] + ".bmp"
+logos.append(logo7)
+group7 = displayio.Group()
+groups.append(group7)
+#################################################
+teams.append(team8)
+logo8 = "/team0_logos/" + team8[1] + ".bmp"
+logos.append(logo8)
+group8 = displayio.Group()
+groups.append(group8)
+#################################################
+teams.append(team9)
+logo9 = "/team0_logos/" + team9[1] + ".bmp"
+logos.append(logo9)
+group9 = displayio.Group()
+groups.append(group9)
+#################################################
+teams.append(team10)
+logo10 = "/team0_logos/" + team10[1] + ".bmp"
+logos.append(logo10)
+group10 = displayio.Group()
+groups.append(group10)
+####################################################
+teams.append(team11)
+logo11 = "/team0_logos/" + team11[1] + ".bmp"
+logos.append(logo11)
+group11 = displayio.Group()
+groups.append(group11)
+##################################################
+teams.append(team12)
+logo12 = "/team0_logos/" + team12[1] + ".bmp"
+logos.append(logo12)
+group12 = displayio.Group()
+groups.append(group12)
+##################################################
+teams.append(team13)
+logo13 = "/team0_logos/" + team13[1] + ".bmp"
+logos.append(logo13)
+group13 = displayio.Group()
+groups.append(group13)
+##################################################
+teams.append(team14)
+logo14 = "/team0_logos/" + team14[1] + ".bmp"
+logos.append(logo14)
+group14 = displayio.Group()
+groups.append(group14)
+##################################################
+teams.append(team15)
+logo15 = "/team0_logos/" + team15[1] + ".bmp"
+logos.append(logo15)
+group15 = displayio.Group()
+groups.append(group15)
+##################################################
 # initial startup screen
 # shows the five team logos you are following
 def sport_startup(logo):
@@ -355,7 +446,7 @@ display_timer = display_timer * 1000
 # load logos
 sport_startup(logos)
 # initial data fetch
-for z in range(5):
+for z in range(16):
     try:
         just_fetched = get_data(SPORT_URLS[z],
                  teams[z],
@@ -405,5 +496,6 @@ while True:
         gc.collect()
         time.sleep(5)
         microcontroller.reset()
+
 
 
