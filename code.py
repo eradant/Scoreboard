@@ -29,9 +29,12 @@ font_color = 0xFFFFFF
 timezone_info = [-8, "PST"]
 # the name of the sports you want to follow
 sport_name = ["football", "football", "football", "football", "football", "football", "football", "football", "football", "football",
-"football", "football", "football", "football", "football", "football"]
+"football", "football", "football", "football", "football", "football", "football", "football", "football", "football", "football", "football",
+"football", "football", "football", "football", "football", "football", "football", "football", "football", "football" ]
 # the name of the corresponding leages you want to follow
-sport_league = ["nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl"]
+sport_league = ["nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl",
+"nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl", "nfl",
+"nfl", "nfl", "nfl", "nfl"]
 # the team names you want to follow
 # must match the order of sport/league arrays
 # include full name and then abbreviation (usually city/region)
@@ -63,6 +66,34 @@ team12 = ["Atlanta Falcons", "ATL"]
 team13 = ["Carolina Panthers", "CAR"]
 team14 = ["New Orleans Saints", "NO"]
 team15 = ["Tampa Bay Buccaneers", "TB"]
+###########
+#afc north
+############
+team16 = ["Baltimore Ravens", "BAL"]
+team17 = ["Pittsburgh Steelers", "PIT"]
+team18 = ["Cincinnati Bengals", "CIN"]
+team19 = ["Cleveland Browns", "CLE"]
+###########
+#aft south
+############
+team20 = ["Tennessee Titans", "TEN"]
+team21 = ["Jacksonville Jaguars", "JAX"]
+team22 = ["Houston Texans", "HOU"]
+team23 = ["Indianapolis Colts", "IND"]
+#########
+#afc east
+#########
+team24 = ["Miami Dolphins", "MIA"]
+team25 = ["Buffalo Bills", "BUF"]
+team26 = ["New England Patriots", "NE"]
+team27 = ["New York Jets", "NYJ"]
+#########
+#
+#########
+team28 = ["Denver Broncos", "DEN"]
+team29 = ["Las Vegas Raiders", "LV"]
+team30 = ["Kansas City Chiefs", "KC"]
+team31 = ["Los Angeles Chargers", "LAC"]
 
 
 # how often the API should be fetched
@@ -109,7 +140,7 @@ print(f"Connected to {os.getenv('CIRCUITPY_WIFI_SSID')}")
 
 # add API URLs
 SPORT_URLS = []
-for i in range(16):
+for i in range(32):
     d = (
     f"https://site.api.espn.com/apis/site/v2/sports/{sport_name[i]}/{sport_league[i]}/scoreboard"
     )
@@ -220,6 +251,102 @@ logos.append(logo15)
 group15 = displayio.Group()
 groups.append(group15)
 ##################################################
+teams.append(team16)
+logo16 = "/team0_logos/" + team16[1] + ".bmp"
+logos.append(logo16)
+group16 = displayio.Group()
+groups.append(group16)
+##################################################
+teams.append(team17)
+logo17 = "/team0_logos/" + team17[1] + ".bmp"
+logos.append(logo17)
+group17 = displayio.Group()
+groups.append(group17)
+##################################################
+teams.append(team18)
+logo18 = "/team0_logos/" + team18[1] + ".bmp"
+logos.append(logo18)
+group18 = displayio.Group()
+groups.append(group18)
+##################################################
+teams.append(team19)
+logo19 = "/team0_logos/" + team19[1] + ".bmp"
+logos.append(logo19)
+group19 = displayio.Group()
+groups.append(group19)
+##################################################
+teams.append(team20)
+logo20 = "/team0_logos/" + team20[1] + ".bmp"
+logos.append(logo20)
+group20 = displayio.Group()
+groups.append(group20)
+##################################################
+teams.append(team21)
+logo21 = "/team0_logos/" + team21[1] + ".bmp"
+logos.append(logo21)
+group21 = displayio.Group()
+groups.append(group21)
+##################################################
+teams.append(team22)
+logo22 = "/team0_logos/" + team22[1] + ".bmp"
+logos.append(logo22)
+group22 = displayio.Group()
+groups.append(group22)
+##################################################
+teams.append(team23)
+logo23 = "/team0_logos/" + team23[1] + ".bmp"
+logos.append(logo23)
+group23 = displayio.Group()
+groups.append(group23)
+##################################################
+teams.append(team24)
+logo24 = "/team0_logos/" + team24[1] + ".bmp"
+logos.append(logo24)
+group24 = displayio.Group()
+groups.append(group24)
+##################################################
+teams.append(team25)
+logo25 = "/team0_logos/" + team25[1] + ".bmp"
+logos.append(logo25)
+group25 = displayio.Group()
+groups.append(group25)
+##################################################
+teams.append(team26)
+logo26 = "/team0_logos/" + team26[1] + ".bmp"
+logos.append(logo26)
+group26 = displayio.Group()
+groups.append(group26)
+##################################################
+teams.append(team27)
+logo27 = "/team0_logos/" + team27[1] + ".bmp"
+logos.append(logo27)
+group27 = displayio.Group()
+groups.append(group27)
+##################################################
+teams.append(team28)
+logo28 = "/team0_logos/" + team28[1] + ".bmp"
+logos.append(logo28)
+group28 = displayio.Group()
+groups.append(group28)
+##################################################
+teams.append(team29)
+logo29 = "/team0_logos/" + team29[1] + ".bmp"
+logos.append(logo29)
+group29 = displayio.Group()
+groups.append(group29)
+##################################################
+teams.append(team30)
+logo30 = "/team0_logos/" + team30[1] + ".bmp"
+logos.append(logo30)
+group30 = displayio.Group()
+groups.append(group30)
+##################################################
+teams.append(team31)
+logo31 = "/team0_logos/" + team31[1] + ".bmp"
+logos.append(logo31)
+group31 = displayio.Group()
+groups.append(group31)
+##################################################
 # initial startup screen
 # shows the five team logos you are following
 def sport_startup(logo):
@@ -269,7 +396,7 @@ def convert_date_format(date, tz_information):
     # Determine the timezone abbreviation based on the offset
     time_zone_str = tz_information[1]
     return f"{month}/{day} - {hour_12}:{minute} {am_pm} {time_zone_str}"
-
+#################################
 # the actual API and display function
 # pylint: disable=too-many-locals, too-many-branches, too-many-statements
 def get_data(data, team, logo, group):
@@ -446,7 +573,7 @@ display_timer = display_timer * 1000
 # load logos
 sport_startup(logos)
 # initial data fetch
-for z in range(16):
+for z in range(32):
     try:
         just_fetched = get_data(SPORT_URLS[z],
                  teams[z],
@@ -466,7 +593,9 @@ fetch_clock = ticks_ms()
 display_clock = ticks_ms()
 
 while True:
+    
     try:
+        
         if not just_fetched:
             # garbage collection for display groups
             gc.collect()
@@ -490,12 +619,17 @@ while True:
         if ticks_diff(ticks_ms(), fetch_clock) >= fetch_timer:
             just_fetched = False
     # pylint: disable=broad-except
+            
     except Exception as Error:
         print(Error)
         time.sleep(10)
         gc.collect()
         time.sleep(5)
         microcontroller.reset()
+
+
+
+
 
 
 
